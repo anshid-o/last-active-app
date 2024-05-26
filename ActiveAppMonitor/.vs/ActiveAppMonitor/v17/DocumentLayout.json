@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\91964\\source\\repos\\ActiveAppMonitor\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FBE10BBB-4CB9-4FCF-9564-E29D22AD4A7B}|ActiveAppMonitor\\ActiveAppMonitor.csproj|c:\\users\\91964\\source\\repos\\activeappmonitor\\activeappmonitor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBE10BBB-4CB9-4FCF-9564-E29D22AD4A7B}|ActiveAppMonitor\\ActiveAppMonitor.csproj|solutionrelative:activeappmonitor\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\91964\\source\\repos\\ActiveAppMonitor\\ActiveAppMonitor\\Program.cs",
+              "RelativeDocumentMoniker": "ActiveAppMonitor\\Program.cs",
+              "ToolTip": "C:\\Users\\91964\\source\\repos\\ActiveAppMonitor\\ActiveAppMonitor\\Program.cs",
+              "RelativeToolTip": "ActiveAppMonitor\\Program.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAAAswDgAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T11:19:32.116Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

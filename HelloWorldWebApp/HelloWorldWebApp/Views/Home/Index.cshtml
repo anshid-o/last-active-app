@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Hello, World Web Application</h1>
+    <div>
+        <input type="text" id="editBox" placeholder="Type here..." />
+        <button id="printButton">Print</button>
+    </div>
+    <div id="output"></div>
+</div>
+
+<script>
+    document.getElementById("printButton").addEventListener("click", async function () {
+        try {
+            const response = await fetch('http://localhost:5000');
+            if (response.ok) {
+                const sixthApplication = await response.text();
+                document.getElementById('output').innerText = 'Last active application: ' + sixthApplication;
+            } else {
+                document.getElementById('output').innerText = 'Could not fetch the active applications.';
+            }
+        } catch (error) {
+            document.getElementById('output').innerText = 'Error: ' + error.message;
+        }
+    });
+</script>
+
