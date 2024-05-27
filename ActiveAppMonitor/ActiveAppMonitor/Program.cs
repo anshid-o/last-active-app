@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text.Json;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,38 +35,52 @@ namespace ActiveAppMonitor
                         app.UseCors("AllowAllOrigins");
                         app.Run(async context =>
                         {
-                            var activeApps = GetActiveApplications();
-                            var json = JsonSerializer.Serialize(activeApps);
+                            var activeApp = GetLastActiveApplication();
+                            var json = JsonSerializer.Serialize(activeApp);
                             context.Response.ContentType = "application/json";
                             await context.Response.WriteAsync(json);
                         });
                     });
                 });
 
-        private static string GetActiveApplications()
+        private static string GetLastActiveApplication()
         {
             var excludedTitles = new[]
-    {
-        "C:\\Users\\91964\\source\\repos\\ActiveAppMonitor\\ActiveAppMonitor\\bin\\Debug\\net8.0\\ActiveAppMonitor.exe",
-        "ActiveAppMonitor - Microsoft Visual Studio",
-        "HelloWorldWebApp - Microsoft Visual Studio",
-        "Settings",
-        "Home Page - HelloWorldWebApp - Brave",
-        "Settings"
-    };
+            {
+                "C:\\Users\\91964\\source\\repos\\ActiveAppMonitor\\ActiveAppMonitor\\bin\\Debug\\net8.0\\ActiveAppMonitor.exe",
+                "ActiveAppMonitor - Microsoft Visual Studio",
+                "HelloWorldWebApp - Microsoft Visual Studio",
+                "Settings",
+                "Home Page - HelloWorldWebApp - Brave",
+                "Windows Input Experience",
+                "NVIDIA GeForce Overlay",
+                "Recording toolbar"
+            };
 
-            var firstActiveApp = Process.GetProcesses()
-                                        .Where(p => !string.IsNullOrWhiteSpace(p.MainWindowTitle) && !excludedTitles.Contains(p.MainWindowTitle))
-                                        .OrderByDescending(p => p.StartTime)
-                                        .Select(p => p.MainWindowTitle)
-                                        .FirstOrDefault();
+            var activeApps = Process.GetProcesses()
+                                    .Where(p => !string.IsNullOrWhiteSpace(p.MainWindowTitle) && !excludedTitles.Contains(p.MainWindowTitle))
+                                    .OrderByDescending(p => GetWindowZOrder(p.MainWindowHandle))
+                                    .Select(p => p.MainWindowTitle)
+                                    .ToArray();
 
-            return firstActiveApp;
-
+            return activeApps.LastOrDefault(); // Get only the last active application
         }
 
+        private static int GetWindowZOrder(IntPtr hWnd)
+        {
+            IntPtr hCurrent = hWnd;
+            int zOrder = 0;
+            while (hCurrent != IntPtr.Zero)
+            {
+                hCurrent = GetWindow(hCurrent, GW_HWNDPREV);
+                zOrder++;
+            }
+            return zOrder;
+        }
 
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern IntPtr GetWindow(IntPtr hWnd, uint uCmd);
 
-
+        private const uint GW_HWNDPREV = 3;
     }
 }

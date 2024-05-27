@@ -17,3 +17,4 @@ C:\Users\91964\source\repos\ActiveAppMonitor\ActiveAppMonitor\bin\Debug\net8.0\M
 C:\Users\91964\source\repos\ActiveAppMonitor\ActiveAppMonitor\bin\Debug\net8.0\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
 C:\Users\91964\source\repos\ActiveAppMonitor\ActiveAppMonitor\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\91964\source\repos\ActiveAppMonitor\ActiveAppMonitor\obj\Debug\net8.0\ActiveAp.2E99244B.Up2Date
+C:\Users\91964\source\repos\ActiveAppMonitor\ActiveAppMonitor\obj\Debug\net8.0\ActiveAppMonitor.sourcelink.json

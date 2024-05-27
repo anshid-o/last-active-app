@@ -10,20 +10,18 @@
     </div>
     <div id="output"></div>
 </div>
-
 <script>
     document.getElementById("printButton").addEventListener("click", async function () {
         try {
             const response = await fetch('http://localhost:5000');
             if (response.ok) {
-                const sixthApplication = await response.text();
-                document.getElementById('output').innerText = 'Last active application: ' + sixthApplication;
+                const activeApp = await response.json();
+                document.getElementById('output').innerText = 'Last active application: ' + activeApp;
             } else {
-                document.getElementById('output').innerText = 'Could not fetch the active applications.';
+                document.getElementById('output').innerText = 'Could not fetch the last active application.';
             }
         } catch (error) {
             document.getElementById('output').innerText = 'Error: ' + error.message;
         }
     });
 </script>
-

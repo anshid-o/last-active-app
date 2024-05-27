@@ -28,3 +28,4 @@ C:\Users\91964\source\repos\HelloWorldWebApp\HelloWorldWebApp\obj\Debug\net8.0\r
 C:\Users\91964\source\repos\HelloWorldWebApp\HelloWorldWebApp\obj\Debug\net8.0\HelloWorldWebApp.pdb
 C:\Users\91964\source\repos\HelloWorldWebApp\HelloWorldWebApp\obj\Debug\net8.0\HelloWorldWebApp.genruntimeconfig.cache
 C:\Users\91964\source\repos\HelloWorldWebApp\HelloWorldWebApp\obj\Debug\net8.0\ref\HelloWorldWebApp.dll
+C:\Users\91964\source\repos\HelloWorldWebApp\HelloWorldWebApp\obj\Debug\net8.0\HelloWorldWebApp.sourcelink.json
